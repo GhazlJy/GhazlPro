@@ -1,0 +1,1131 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Parkinsans:wght@300..800&display=swap');
+/* الفرق بين inline، وblock، وinline-block:
+1. display: inline;:
+العنصر يكون جنب العناصر الثانية.
+ما تقدر تتحكم في width أو height. 😑
+2. display: block;:
+العنصر يأخذ السطر بالكامل.
+تقدر تتحكم في width وheight. 🛠️
+3. display: inline-block;:
+العنصر يكون جنب العناصر الثانية.
+تقدر تتحكم في width وheight. 💪
+ */
+
+*{
+    /* margin: 0; معناها "شيل كل المسافات الخارجية حوالين العناصر".
+    padding: 0; معناها "شيل كل المسافات الداخلية جوا العناصر". */
+/* باختصار:
+هذا الكود بيقول: "يا متصفح، لا تتفلسف! شيل كل المسافات وابدا نظيف" */
+    margin: 0;
+    padding: 0;
+ 
+    font-family: "Parkinsans", sans-serif;
+}
+
+
+body{
+    background-color: #0C0D13;
+}
+
+/* مربع البحث */
+.search-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #ffffff; 
+    padding: 5px 10px; 
+    border-radius: 20px; 
+}
+
+.search-box i {
+    color: #0FC7A0; 
+    font-size: 18px; 
+}
+
+.search-input {
+    border: none; 
+    outline: none; 
+    background: none; 
+    color: #ffffff; 
+    font-size: 14px;
+    width: 150px; 
+}
+
+.search-input::placeholder {
+    color: #5851C7; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.header{
+    /* الحد الادنى للارتفاع */
+    height: 50px;
+    width: 100%;
+    background-color: #0C0D13;
+    z-index: 1000; 
+    position: fixed;
+
+    /* top: 0;تثبيت الهيدر في الأعلى */
+     /* left: 0; */
+   /* background-repeat: no-repeat; */
+   /* background-position: center; */
+   /* background-size: cover; */
+   /* position: relative; */
+   top: 0; /* تثبيت في الأعلى */
+   display: flex; /* عرض مرن لترتيب العناصر */
+   justify-content: space-between; /* توزيع العناصر بين الطرفين */
+   align-items: center; /* محاذاة العناصر عمودياً */
+  
+   /* relative زي ما تقول للعنصر: "ابقَ مكانك بس ممكن أحركك شوي، وإذا جبت أطفال مطلقين (absolute) خليهم يتمركزوا عليك" */
+}
+
+
+
+.logo{
+    width: 100px;
+    height: 40px;
+     float: left; /*اسمح لشي يجي يسارك */
+}
+.list{
+    /* العناصر ليه فوق بعض لانهم بلوك */
+    list-style: none;
+    float: right;  /*مكان عنصر اللست */
+    margin-right: 30px;
+    display: flex;
+   /* margin: 0;  إزالة المسافات الخارجية */
+    padding: 0;  /*إزالة المسافات الداخلية */
+   
+}
+
+/* nesting عنصر جوا عنصر */
+.list  li{
+    display: inline-block;
+    color: #ffffff;
+     margin-left: 25px; /*مسافه بين العناصر */
+}
+
+/* body{
+    height: 5000px;
+} */
+.home{
+    width: 100%;
+    height: 100vh;
+   background-image: url("../images/ii.svg");
+   background-position: center;
+   mask-repeat: no-repeat;
+   background-size: cover;
+   position: relative;/* بما ان تحت استخدمت ابسلوت لازم ارجع للاب المباشر واحط ريلتف للاب */
+}
+
+
+.overlay{
+    position: absolute; /*  يعن طبقه فوق الاب اي عنصر فوق عنصر نستخدم للي فوق ذا */
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.233);
+    /*opacity: 0.2; الشفافيه */
+}
+.home-content{
+width: 100%;
+/* hero img */
+position: absolute; /* لازم اطلعه فوف كل الطبقات ولازم ادور له اب  الاب هو الهوم*/
+ top: 50%;/* سيب لي من فوق مسافه */
+ left: 50%;  /*ماقدر استخدمهم الا اذا حطيت له ابسلوت */
+transform: translate(-50% , -50%);  /* ارجع للشمال مقدار الرض فوق */
+text-align: center;
+}
+.title{
+color: azure;
+font-size: 40px;
+text-transform: uppercase;
+}
+.home-p{
+   color: #54AA8F;
+font-size: 20px; 
+}
+.home-p:hover{
+    color: #ffffff;
+ font-size: 20px; 
+ }
+
+.home-btn{
+    background-color: #383838;
+     color: rgb(255, 255, 255);
+    width: 145px;
+    height: 40px;
+    border: 0;
+    border-radius: 20px;
+    font-size: 16px;
+cursor: pointer;
+}
+.home-btn-btn{
+    background-color: #54AA8F;
+
+    color: #1b1b1b;
+   
+    width: 145px;
+    height: 40px;
+    border: 0;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+
+}
+
+.h{
+    width: 250px;
+    height: 200px;
+    border: 2px solid;
+    
+
+}
+.tit{
+   /* opacity: 0;   المحتوى موجود بس شفاف */
+   /* visibility: hidden;  المحتوى موموجود بس مكانه موجود */
+    /* display: none;مايحجز مكان  كانه موموجود*/
+}
+/*  للاخفاء والظهور مثلا مواقع الافلام تحط لك اخفاء لروابط اعلانات تضغط تحسب المكان فاضي وهو العكس */
+ .h:hover .tit{
+/*opacity: 1;*/
+/* visibility: visible; */
+/* display: block; */
+} 
+
+.bg{
+    width: 200px;
+    height: 200px;
+    border: 2px solid;
+    margin-left: 200px;/*  مسافة خارجيه */
+   padding-left: 10%;  /* مسافة داخلية */
+}
+.list li:hover {
+    color: #0FC7A0; /* لون عند التمرير بالفأرة */
+    text-decoration: underline; 
+    cursor: pointer;
+}
+
+.tit1{
+    text-align: center;
+/*توسط النص */ 
+font-size:30px;
+color: #f2fffb;
+margin-top: 50px; /* مسافة خارجية من الأعلى */
+}
+
+
+.line{
+    
+    width: 90px;
+  height: 2px;  
+  background-color: #54AA8F;
+  margin: auto;
+  margin-top: -50px;
+  margin-bottom: 50px;
+}
+
+
+/* Services Section */
+
+.parent {
+    width: 100%;
+    height: 100vh;
+    background-image: url("../images/ii\ 2.svg");
+    background-position: center;
+    mask-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    gap: 55px;
+    align-items: center;
+    background-color: #0C0D13;
+}
+
+.row {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+
+.card {
+    width: 240px; 
+    padding: 35px;
+    box-shadow: 0 4px 8px rgba(78, 95, 90, 0.445);
+    height: auto; /* اجعل الارتفاع تلقائيًا ليناسب المحتوى */
+    border: 3px solid #54AA8F;;
+  
+    text-align: center;
+    border-radius: 8px;
+    background-color: #171825;
+    color: #ffffff; /* النص باللون الأبيض */
+    font-family: Arial, sans-serif; /* خط بسيط */
+    position: relative;
+}
+
+.card:hover {
+    visibility: visible;
+    opacity: 0.7;
+    transition: 1s;
+    }
+
+
+.card:after{
+    content: "";
+position: absolute;
+/* width: 100;  يخلي الهوفر من فوق بالنص */
+width: 0; 
+height: 0;
+top: 0;
+
+/* فوق بالنص  */
+left: 0;
+/* فوق يسار  */
+background-color: #0fc79f1a;
+transition: 1s;
+}
+.card:hover::after{
+    width: 100%;
+    height: 100%;
+     transition: 1s; /* بالديف الاصليه بس*/
+    }
+
+/* أيقونة */
+.icon-container {
+    margin-bottom: 10px; /* مسافة بين الصورة والعنوان */
+}
+
+
+/* العنوان */
+.card h3 {
+    margin: 10px 0; /* مسافة بين العنوان والعناصر الأخرى */
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* النص */
+.card p {
+    margin: 10px 0; /* مسافة بين النص والعناصر الأخرى */
+    font-size: 13px;
+}
+
+/* رابط "Read More" */
+.read-more {
+    display: inline-block;
+    margin-top: 10px; /* مسافة بين النص والرابط */
+    font-size: 14px;
+    color: #5851C7; /* لون أزرق */
+    text-decoration: none; /* إزالة التسطير */
+   
+}
+
+
+
+.icon {
+    width: 24px; 
+    height: 24px;
+    margin-right: 8px; 
+    vertical-align: middle; }
+
+    .tit11{
+        text-align: center; /* توسيط النص */
+        font-size: 30px;
+        color: #f2fffb;
+        margin-bottom: 20px; /* مسافة بين العنوان والكارد */
+    }
+    
+
+      .ht{
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* توسيط المحتوى أفقيًا */
+        justify-content: center; /* توسيط المحتوى رأسيًا */
+        height: 100vh; /* جعل الحاوية تغطي كامل ارتفاع الشاشة */
+        background-color: #0C0D13;
+     
+
+      }
+      
+  /* المعرض */
+  .gallery {
+
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 65px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+
+  .image-card {
+    position: relative;
+    overflow: hidden;
+    border: 3px solid #54AA8F;
+    border-radius: 10px;
+    width: 350px;
+    height: 200px; 
+  }
+  
+  .image-card img {
+    width: auto;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+   
+  }
+  
+
+  .overlays {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.747);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .image-card:hover .overlays {
+    opacity: 1;
+  }
+  
+  .categorys {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+
+
+
+
+
+      .us{/* صفحة us */
+ 
+        height: 100vh;
+        width: 100%;
+        background-color: #0C0D13;
+        position: relative;
+        display: flex;
+        flex-direction: column; /* يجعل جميع العناصر بترتيب عمودي */
+    
+      }
+
+      .titus{/* العنوان */
+        margin-top: 100px;
+        color: #f9f9f9;
+        /* text-align: left; */
+        margin-left: 100px; 
+        font-size: 39px;
+        
+    }
+    
+    .linees{
+        width: 100px;
+        height: 3.5px;
+        background-color: #54AA8F;
+        margin-top: 20px;
+        margin-left: 100px;
+        
+    }
+    
+    .pict{/* الصوره */
+        margin-left: 820px;
+        margin-top: 70px;
+        position: absolute;
+        width: 490px;
+        height: 300px;
+    }
+    
+    .po{ /* البراقراف */
+        margin-top: 66px;
+        color: #f9f9f9;
+        /* text-align: left; */
+        margin-left: 100px; 
+        font-size: 15px;
+      
+    }
+    
+    .ullg{ /* اللسته */
+       
+        list-style-type: none;
+        margin-left: 100px; 
+        margin-top: 66px;
+    }
+    
+    
+    
+    
+    .ul{
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        
+    }
+    
+    .ullg li {
+        display: flex;
+        align-items: center;
+        font-size: 17px;
+        
+        margin: 10px 0;
+     color: #5851C7;
+    }
+    
+    .ullg li i{
+        color: #54AA8F;
+        font-size: 20px;
+        margin-right: 10px;
+    }
+    
+    
+    
+    
+    
+    .stats-section {
+        display: flex;
+        Background-attachment: fixed;
+        justify-content: space-around;
+        align-items: center;
+        padding: 50px;
+        background-image: url("../images/F.jpg");
+        background-size: cover;
+        background-position: center;
+        color: #54AA8F; 
+      }
+
+      
+      .stat {
+        text-align: center;
+      }
+      
+      .icons {
+        font-size: 40px;
+       
+      }
+      
+      .h3 {
+        font-size: 32px;
+        margin: 10px 0;
+ 
+      }
+      
+      .ps {
+        font-size: 16px;
+        margin: 0;
+        color: #ffffff; /* لون النص الثانوي */
+      }
+
+
+
+
+
+
+
+      .div110 {
+
+        width: 200px;
+        height: 390px;
+        border: 2px solid #54AA8F;
+        background-color: #181A27;
+        border-radius: 15px;
+        float: left;
+        margin-left: 250px;
+
+    margin-top: 70px;
+    display: flex;
+    flex-direction: column; /* لتحريك العناصر عموديًا */
+    justify-content: space-between; /* توزيع المسافة بين العناصر داخل الصندوق */
+    align-items: center; /* توسيط النصوص أفقيًا */
+    padding: 20px;
+ 
+    }
+    .tit-tit{
+        text-align: center;
+        /*توسط النص */
+    
+        text-align: center; 
+        width: 100px;  
+        height: 100px; 
+        background-color: #5851C7; 
+        border-radius: 30%; 
+        display: flex;
+        justify-content: center; 
+        align-items: center; 
+        font-size: 35px; 
+        color: #0FC7A0; 
+        
+        margin: 0 auto; 
+    
+    
+    
+    }
+    
+    .tit10{
+
+
+    text-align: center;
+    /*توسط النص */ 
+    font-size:30px;
+    color: #f2fffb;
+    margin-top: 50px;
+    
+
+    
+    }
+    
+    .div222 {
+        width: 200px;
+        height: 390px;
+        border: 2px solid #54AA8F;
+        background-color: #181A27;
+        border-radius: 15px;
+        float: left;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; 
+        align-items: center; 
+        padding: 20px;
+        margin: 70px 50px;
+      
+    }
+    
+    .div333 {
+        
+        width: 200px;
+        height: 390px;
+        border: 2px solid #54AA8F;
+        background-color: #181A27;
+        border-radius: 15px;
+        float: left;
+       
+    margin-top: 70px;
+        display: flex;
+        flex-direction: column; /* لتحريك العناصر عموديًا */
+        justify-content: space-between; /* توزيع المسافة بين العناصر داخل الصندوق */
+        align-items: center; /* توسيط النصوص أفقيًا */
+        padding: 20px;
+    
+        float: left;
+    
+    
+    
+    }
+    
+
+    .peranth{
+    width: 100%;
+    height: 100vh;
+    background-color: #0C0D13;
+  
+    
+    }
+
+
+    .div333{
+        position: relative; 
+    }
+    .div110 {
+        position: relative; 
+    }
+    .div222 {
+        position: relative; 
+    }
+    
+
+    .div110:hover {
+        visibility: visible;
+        opacity: 0.7;
+        transition: 1s;
+    }
+    
+    .div110:after {
+        content: "";
+        position: absolute;
+        width: 100; /* يبدأ بعرض صفر */
+        height: 0; /* يبدأ بطول صفر */
+        top: 0;
+      
+        background-color: rgba(3, 255, 200, 0.137); /* لون شفاف */
+        transition: 1s; /* انتقال ناعم */
+    }
+    
+    .div110:hover:after {
+        width: 100%; /* يتمدد على كامل العرض */
+        height: 100%; /* يتمدد على كامل الطول */
+    }
+    
+   
+    .div222:hover {
+        visibility: visible;
+        opacity: 0.7;
+        transition: 1s;
+    }
+    
+    .div222:after {
+        content: "";
+        position: absolute;
+        width: 100; /* يبدأ بعرض صفر */
+        height: 0; /* يبدأ بطول صفر */
+        top: 0;
+      
+        background-color: rgb(3, 255, 200, 0.137); /* لون شفاف */
+        transition: 1s; /* انتقال ناعم */
+    }
+    
+    .div222:hover:after {
+        width: 100%; /* يتمدد على كامل العرض */
+        height: 100%; /* يتمدد على كامل الطول */
+    }
+    
+   
+        
+    .div333:hover {
+        visibility: visible;
+        opacity: 0.7;
+        transition: 1s;
+    }
+    
+    .div333:after {
+        content: "";
+        position: absolute;
+        width: 100; /* يبدأ بعرض صفر */
+        height: 0; /* يبدأ بطول صفر */
+        top: 0;
+      
+        background-color: rgb(3, 255, 200, 0.137); /* لون شفاف */
+        transition: 1s; /* انتقال ناعم */
+    }
+    
+    .div333:hover:after {
+        width: 100%; /* يتمدد على كامل العرض */
+        height: 100%; /* يتمدد على كامل الطول */
+    }
+    
+   
+
+
+
+
+
+
+
+
+
+
+
+    .btn100{
+        padding: 10px 20px;
+        font-size: 14px;
+        cursor: pointer;
+        background-color: #1562f100;
+        color: rgb(88, 81, 199); 
+        border: none; 
+        border-radius: 10px; 
+        
+    }
+    .btn100:hover {
+        background-color: #0FC7A0; 
+    }
+          .plan-details{
+            color: #ffffff;
+            font-size: 14px;
+          }
+
+
+
+
+
+
+
+
+
+
+
+
+
+.tit14{
+    
+    text-align: center;
+    /*توسط النص */ 
+    font-size:30px;
+    color: #f2fffb;
+    margin-top: 60px;
+    margin-bottom: 40px; 
+}
+          .parents {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+       color: #ffffff;
+       
+
+        }
+
+        
+        .rows {
+            display: flex;
+            gap: 45px;
+            justify-content: center;
+           
+        }
+        
+        .cards {
+            width: 240px; 
+            height: 150px;
+            padding: 20px;
+            border: 1px solid #0FC7A0;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+            text-align: center;
+            border-radius: 8px;
+            background-color: #171825;
+            position: relative;
+
+        }
+
+        .cards:hover {
+visibility: visible;
+opacity: 0.7;
+transition: 1s;
+        }
+
+        .cards:after{
+            content: "";
+            position: absolute;
+            /* width: 100;  يخلي الهوفر من فوق بالنص */
+            width: 0; 
+            height: 0;
+            top: 0;
+            
+            /* فوق بالنص  */
+            left: 0;
+            /* فوق يسار  */
+            background-color: #0fc79f38;
+            transition: 1s;
+            }
+
+.cards:hover:after{
+width: 100%;
+height: 100%;
+ transition: 1s; /* بالديف الاصليه بس*/
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        .icons {
+            width: 24px; 
+            height: 24px;
+            margin-right: 8px; 
+            vertical-align: middle; }
+
+            .containeri, .item, .t-img, .ovelay {
+                box-sizing: border-box;
+              }
+
+.containeri{
+    width: 80%;
+ margin: auto; 
+ height: 100vh;
+
+
+    
+}
+
+.content{
+
+}
+.item{
+    float: left;
+    background-color: #ffffff;
+    width: 30%;
+    padding: 14px 18px;
+    text-align: center;
+    position: relative;
+}
+
+.gg{
+    margin: 0px 5% ;
+}
+.t-img{
+
+    width: 90%;
+    margin: auto;
+    position: relative;
+}
+.t-img img{
+     /* width: 100%; */
+
+     /* height: auto;
+  
+     object-fit: contain; */
+     
+}
+
+.ovelay{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;;
+    background-color: rgba(12, 13, 19, 0.534);
+    visibility: hidden;
+}
+.ovelay a{
+   display: block;
+    width: 40px;
+    height: 40px;
+    background-color: #0C0D13;
+    margin-left: auto;
+    
+}
+.ovelay a i{
+line-height: 40px;
+    
+}
+
+.team-tit{
+    text-transform: uppercase;
+    padding: 12px 0px;
+
+}
+
+.team-span{
+    text-transform: capitalize;
+}
+
+.item:hover{
+color: #5851C7;
+}
+
+.item:hover .team-tit{
+color: #0C0D13;
+}
+
+.item:hover .ovelay{
+visibility: visible;
+opacity: 0.7;
+transition: 1s;
+}
+
+/* ----------------------------------------------------------------- */
+/* hover active  focus : pseudo classes   |   after before : pseudo alements ديف وهمي */
+.item:after{
+content: "";
+position: absolute;
+/* width: 100;  يخلي الهوفر من فوق بالنص */
+width: 0; 
+height: 0;
+top: 0;
+
+/* فوق بالنص  */
+left: 0;
+/* فوق يسار  */
+background-color: #5951c765;
+transition: 1s;
+}
+/* pseudo alements with pseudo classes  */
+.item:hover::after{
+width: 100%;
+height: 100%;
+ transition: 1s; /* بالديف الاصليه بس*/
+}
+
+
+
+
+
+
+/* News Section */
+.tit144{
+    text-align: center;
+    font-size: 30px;
+    color: #ffffff;
+    margin-top: 20px;
+    margin-bottom: 30px; /* زيادة المسافة بين العنوان والعناصر */
+}
+
+
+
+.news-section {
+    display: flex;
+    justify-content: space-around;
+    padding: 2rem;
+    gap: 1rem;
+    justify-content: center; 
+    
+    /* height: 100vh; */
+    margin: 0; 
+}
+
+.news-card {
+    background-color: #ffffff;
+    border: 1px solid #0FC7A0;
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    width: 20%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.news-card img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 1rem;
+}
+
+.news-card h3 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.news-card p {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #0FC7A0
+}
+
+.news-card span {
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 1rem;
+    color: #000000;
+}
+
+.news-card a {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    color: #5851C7;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.news-card a:hover {
+    /* background-color: #0056b3; */
+}
+
+/* Footer */
+footer {
+    background-color: #0FC7A0;
+    padding: 1rem 0;
+    text-align: center;
+    width: 100%; 
+    box-sizing: border-box; 
+    
+}
+
+.footer-content img {
+    width: 100px;
+    margin-bottom: 1rem;
+}
+
+.footer-content p {
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: #5851C7;
+}
+
+.social-icons a {
+    margin: 0 0.5rem;
+    text-decoration: none;
+    font-size: 0.9rem;
+    color: #5851C7;
+}
+
+/* .social-icons a:hover {
+    text-decoration: underline;
+} */
+
+.footer .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem; 
+    margin-bottom: 1rem;
+}
+
+
+
+.team-section {
+    display: flex;
+    justify-content: center;
+    
+    Background-attachment: fixed;
+    align-items: center;
+    gap: 50px;
+    background-image: url('../images/I.jpg'); /* استخدمي صورتك هنا */
+    background-size: cover;
+    background-position: center;
+    padding: 50px 20px;
+    color: white;
+}
+
+.team-member {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+}
+
+.team-member img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.member-info {
+    text-align: left;
+}
+
+.member-info h3 {
+    margin: 0;
+}
+
+.role {
+    color: #0FC7A0;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.description {
+    font-size: 14px;
+    margin-top: 5px;
+}
